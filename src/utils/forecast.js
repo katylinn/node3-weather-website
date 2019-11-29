@@ -10,8 +10,10 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const temperature = body.currently.temperature
             const precipProbability = body.currently.precipProbability
+            const precipType= body.daily.data[0].precipType
+            //console.log(body.daily.data[0])
 
-            callback(undefined, body.daily.data[0].summary +"  It is currently " + temperature + " degrees out. There is a "+ precipProbability + "% chance of rain.")
+            callback(undefined, body.daily.data[0].summary +"  It is currently " + temperature + " degrees out. There is a "+ precipProbability + "% chance of " + precipType+ ".")
 
         }
 
